@@ -21,5 +21,5 @@ SO THAT I am not bored
   - search for a random activity
 - Will display an activity following user input
 - Save the activity to local storage when the save button is clicked
-- Previously searched for ctivities persit on the webpage between refreshes of the page
+- Previously searched for activities persit on the webpage between refreshes of the page
 
