@@ -24,7 +24,7 @@ $("#search-button").on("click", function(event) {
         choice = "?";
     }
 
-    queryURL = "https://www.boredapi.com/api/activity" + choice + search;
+    var queryURL = "https://www.boredapi.com/api/activity" + choice + search;
 
     $.ajax({
         url: queryURL,
@@ -37,6 +37,7 @@ function extractInfo({activity, link, price}) {
     console.log(activity);
     console.log(link);
     console.log(price);
+    youTubeSearch (activity);
 }
 
 // function to search for the youtube link given the text input from boredapi
@@ -58,8 +59,8 @@ function youTubeSearch (text){
         // console.log(response.items[0].url);
         var youTube_link = response.items[0].url;
         var embeded_link = youTube_link.replace("watch?v=","embed/");
-        
-        // console.log(embeded_link);
+        // link to the html element to add src
+        console.log(embeded_link);
             
     });
 }
