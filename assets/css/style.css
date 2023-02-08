@@ -1,0 +1,44 @@
+body {
+    background-color: rgb(2, 220, 195);
+}
+
+.jumbotron {
+    background-color: rgb(249, 157, 28);
+    height: 250px;
+}
+.navbar {
+    background-color: rgb(249, 157, 28);
+}
+
+.nav-link {
+    color: white;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.display-4 {
+    color: white;
+    font-weight: 900;
+    text-align: center;
+}
+
+#activity-history {
+    list-style: none;
+    background-color: rgb(245, 177, 81);
+}
+
+.search {
+    background-color: rgb(255, 149, 213);
+    border-style: none;
+    color: white;
+}
+.input {
+    border: none;
+}
+
+.searchDiv {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
