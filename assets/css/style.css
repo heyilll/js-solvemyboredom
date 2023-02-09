@@ -14,6 +14,12 @@ body {
  .jumbotron h1 {
     font-size: 5vw;
  }
+
+ .jumbotron h1:hover {
+    color: rgb(251, 112, 195);
+ }
+
+ 
 .navbar {
     background-color: rgb(249, 157, 28);
 }
@@ -48,6 +54,8 @@ body {
     color: white;
     font-size: 16px;
     border: none;
+    display: block;
+    width: 100%;
 }
 .button:hover {
     background-color: rgb(251, 112, 195);
@@ -60,11 +68,6 @@ body {
 .searchDiv {
     padding-bottom: 20px;
     padding-top: 20px;
-}
-
-.button {
-    width: 75px;
-    height: 24px;
 }
 
 /* Dropdown Button */
@@ -108,3 +111,25 @@ body {
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: rgb(251, 112, 195);}
+
+  .submit {
+    background-color: 
+    rgb(0, 204, 170);
+    border: none;
+    color: white;
+    display: block;
+    width: 100%;
+    justify-items: left;
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+
+  .submit:hover {
+    background-color: rgb(251, 112, 195);
+}
+
+#search {
+    margin-top: 5%;
+
+}
+

@@ -59,33 +59,39 @@
              <div class="row">
                 <div class="col-lg-6" id="search">
                     <div class="searchDiv">
-                        <label for="site-search">Search by activity type</label>
-                        <div class="dropdown">
-                            <button class="dropbtn" class="button">Dropdown</button>
-                            <div class="dropdown-content">
-                                <a href="#">Cooking</a>
-                                <a href="#">Music</a>
-                                <a href="#">Relaxation</a>
-                            </div>
-                        </div>
+                      <label for="cars">Choose an activity by type:</label>
+                      <select id="activity" name="activity">
+                      <option value="relaxation">Relaxation</option>
+                      <option value="cooking">Cooking</option>
+                      <option value="">Education</option>
+                      <option value="">Recreational</option>
+                      <option value="">Social</option>
+                      <option value="">DIY</option>
+                      <option value="">Charity</option>
+                      <option value="">Music</option>
+                      <option value="">Busywork</option>
+                      <input class="submit" type="submit" value="Submit" />
+                     </select>
+                   </div>
+                        
+                    <div class="searchDiv">
+                        <label for="participants">Choose number of participants:</label>
+                      <select id="participants" name="participants">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <input class="submit" type="submit" value="Submit" />
+                     </select>
                     </div>
-                    <div class="searchDiv" >
-                        <label for="search-participants">Search by number of participants</label>
-                        <div class="dropdown">
-                            <button class="dropbtn" class="button">Dropdown</button>
-                            <div class="dropdown-content">
-                                <a href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#">4</a>
-                            </div>
-                        </div>
-                    </div>
+                  
                     <div class="searchDiv">
                         <label for="search-random">I can't decide, select a random activity for me!</label>
-                        <button class="button" id="search-random">Search</button>
+                        <button class="submit" id="search-random">Search</button>
                     </div>
                 </div>
+              </div>
+
              <div class="row">
                 <div class="col-lg-6" id="history">
                     <ul id="activity-history">
