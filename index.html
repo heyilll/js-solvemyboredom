@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://kit.fontawesome.com/1e667fd4d6.js" crossorigin="anonymous"></script>
     <title></title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#">Logo</a>
+        <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,29 +38,52 @@
   
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">Solve My Boredom</h1>
-          <p class="lead"></p>
+            <div class="row">
+                <div class="col-lg-4">
+                   <lottie-player class="animation" src="https://assets4.lottiefiles.com/packages/lf20_XVBzBYKqBd.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
+                </div>
+            <div class-="row">
+                <div class="col-lg-8">
+                   <h1 class="display-4">Solve My Boredom</h1>
+                   <p class="lead"></p>
+                </div>
+            </div>
+          
         </div>
       </div> 
+    </div>
 
       <!--Search area-->
-    <section class="search-area">
-        <div class="container">
+    <section>
+        <div class="container" id="search-area">
              <div class="row">
                 <div class="col-lg-6" id="search">
                     <div class="searchDiv">
                         <label for="site-search">Search by activity type</label>
-                        <input class="input" type="search" id="site-search" name="q">
-                        <button class="search">Search</button>
+                        <div class="dropdown">
+                            <button class="dropbtn" class="button">Dropdown</button>
+                            <div class="dropdown-content">
+                                <a href="#">Cooking</a>
+                                <a href="#">Music</a>
+                                <a href="#">Relaxation</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="searchDiv" >
-                        <label for="search-participants">Search by the number of participants</label>
-                        <input class="input" id="search-participants" name="q">
-                        <button class="search">Search</button>
+                        <label for="search-participants">Search by number of participants</label>
+                        <div class="dropdown">
+                            <button class="dropbtn" class="button">Dropdown</button>
+                            <div class="dropdown-content">
+                                <a href="#">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="searchDiv">
                         <label for="search-random">I can't decide, select a random activity for me!</label>
-                        <button class="search" id="search-random">Search</button>
+                        <button class="button" id="search-random">Search</button>
                     </div>
                 </div>
              <div class="row">
@@ -77,6 +101,8 @@
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
+    
 
 </html>
