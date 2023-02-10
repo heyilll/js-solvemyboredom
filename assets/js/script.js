@@ -1,48 +1,70 @@
-// testing section
-// var choice = "";
-// var custom = "participants=3"
-
-// var queryURL = "https://www.boredapi.com/api/activity?" + custom;
-
-// $.ajax({
-//     url: queryURL,
-//     method: "GET"
-// }).then(response => extractInfo(response));
+// tracks activity history
+var pastactivities = [];
 
 // to be integrated with html
 $("#search-button").on("click", function(event) {
     event.preventDefault();
 
-    var search = $("#search-input").val().trim();
-    if (search == "") {
-        return;
-    }
+    var searchNum = $("#number-input :selected").text();
+    var searchType = $("#type-input :selected").text().toLowerCase();
+    var queryURL = "";
 
-    if (!search) {
-        choice = "/";
+    if (!searchNum && !searchType) {
+        queryURL = "https://www.boredapi.com/api/activity/";
+    } else if (searchNum && !searchType) {
+        queryURL = `https://www.boredapi.com/api/activity?participants=${searchNum}`;
+    } else if (!searchNum && searchType) {
+        queryURL = `https://www.boredapi.com/api/activity?type=${searchType}`;
     } else {
-        choice = "?";
+        queryURL = `https://www.boredapi.com/api/activity?type=${searchType}&participants=${searchNum}`;
     }
-
-    var queryURL = "https://www.boredapi.com/api/activity" + choice + search;
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(response => extractInfo(response));
+
+    $("#number-input :selected").val("0");
+    $("#type-input :selected").val("0");
 });
+
+$("#random-button").on("click", function(event) {
+    event.preventDefault();
+
+    var queryURL = "https://www.boredapi.com/api/activity";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(response => extractInfo(response));
+});    
 
 // extracts info about activity 
 function extractInfo({activity, link, price}) {
+    if (!activity) {
+        activity = "No activity found with the specified parameters";
+        price = "";
+        link = "";
+    }
+
+    $("#activity-title").text(activity);
+    $("#activity-price").text(price);
+    $("#activity-link").text(link);
+
     console.log(activity);
-    console.log(link);
     console.log(price);
+
+    // testing for local storage
+    // pastactivities.unshift(activity);
+    // console.log(pastactivities);
+    // localStorage.getItem(activity, JSON.stringify(link,price));
+
     youTubeSearch (activity);
 }
 
 // function to search for the youtube link given the text input from boredapi
 function youTubeSearch (text){
-       
+
     const settings = {
         "async": true,
         "crossDomain": true,
@@ -55,12 +77,11 @@ function youTubeSearch (text){
     };
     
     $.ajax(settings).done(function (response) {
-        // console.log(response);
-        // console.log(response.items[0].url);
         var youTube_link = response.items[0].url;
         var embeded_link = youTube_link.replace("watch?v=","embed/");
+
         // link to the html element to add src
         console.log(embeded_link);
-            
+        // $("#videoembed").attr("src", embeded_link);
     });
 }
