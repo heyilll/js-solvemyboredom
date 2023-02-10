@@ -6,8 +6,8 @@ $("#search-button").on("click", function(event) {
     event.preventDefault();
 
     var searchNum = $("#number-input :selected").text();
-    var searchType = $("#type-input :selected").text();
-    var queryURL = "https://www.boredapi.com/api/activity"
+    var searchType = $("#type-input :selected").text().toLowerCase();
+    var queryURL = "";
 
     if (!searchNum && !searchType) {
         queryURL = "https://www.boredapi.com/api/activity/";
@@ -24,8 +24,8 @@ $("#search-button").on("click", function(event) {
         method: "GET"
     }).then(response => extractInfo(response));
 
-    searchNum = $("#number-input").val("0");
-    searchType = $("#type-input").val("0");
+    $("#number-input :selected").val("0");
+    $("#type-input :selected").val("0");
 });
 
 $("#random-button").on("click", function(event) {
@@ -41,13 +41,22 @@ $("#random-button").on("click", function(event) {
 
 // extracts info about activity 
 function extractInfo({activity, link, price}) {
+    if (!activity) {
+        activity = "No activity found with the specified parameters";
+        price = "";
+        link = "";
+    }
+
     $("#activity-title").text(activity);
     $("#activity-price").text(price);
     $("#activity-link").text(link);
 
-    pastactivities.unshift(activity);
+    console.log(activity);
+    console.log(price);
 
-    // working on saving to local storage
+    // testing for local storage
+    // pastactivities.unshift(activity);
+    // console.log(pastactivities);
     // localStorage.getItem(activity, JSON.stringify(link,price));
 
     youTubeSearch (activity);
@@ -73,6 +82,6 @@ function youTubeSearch (text){
 
         // link to the html element to add src
         console.log(embeded_link);
-        $("#videoembed").attr("src", embeded_link);
+        // $("#videoembed").attr("src", embeded_link);
     });
 }
