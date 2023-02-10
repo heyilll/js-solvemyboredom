@@ -63,35 +63,37 @@
                 <div class="col-lg-8" id="search">
                   <h2 id="activity-text">Activity Search</h2>
                     <div class="searchDiv">
-                      <div class="activity">
+                      <div class="activity" id="type-input">
                         <label class="label" for="activity">Choose an activity by type:</label>
                         <select id="activity" name="activity">
-                        <option value="relaxation">Relaxation</option>
-                        <option value="cooking">Cooking</option>
-                        <option value="">Education</option>
-                        <option value="">Recreational</option>
-                        <option value="">Social</option>
-                        <option value="">DIY</option>
-                        <option value="">Charity</option>
-                        <option value="">Music</option>
-                        <option value="">Busywork</option>
+                        <option value="0"></option>
+                        <option value="1">Relaxation</option>
+                        <option value="2">Cooking</option>
+                        <option value="3">Education</option>
+                        <option value="4">Recreational</option>
+                        <option value="5">Social</option>
+                        <option value="6">DIY</option>
+                        <option value="7">Charity</option>
+                        <option value="8">Music</option>
+                        <option value="9">Busywork</option>
                         </select>
                       </div>
-                      <div class="participants">
+                      <div class="participants" id="number-input">
                         <label class="label" for="participants">Choose number of participants:</label>
                         <select id="participants" name="participants">
+                        <option value="0"></option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         </select>
                      </div>
-                     <input class="submit" type="submit" value="Search" />
+                     <input class="submit" id="search-button" type="submit" value="Search" />
                     
                   
                     <div class="searchDiv">
                         <label class="label" for="search-random">I can't decide, select a random activity for me!</label>
-                        <button class="submit" id="search-random">Search</button>
+                        <button class="submit" id="random-button">Search</button>
                     </div>
                   </div>
                 </div>
