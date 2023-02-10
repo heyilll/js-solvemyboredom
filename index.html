@@ -8,33 +8,36 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="https://kit.fontawesome.com/1e667fd4d6.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <title></title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Activities</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">History</a>
-            </li>
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Activities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">History</a>
+          </li>
            
-          </ul>
-        </div>
-      </nav>
+        </ul>
+      </div>
+    </nav>
   
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
@@ -55,52 +58,50 @@
 
       <!--Search area-->
     <section>
-        <div class="container" id="search-area">
+        <div class="container-search" id="search-area">
              <div class="row">
-                <div class="col-lg-6" id="search">
+                <div class="col-lg-8" id="search">
+                  <h2 id="activity-text">Activity Search</h2>
                     <div class="searchDiv">
-                      <label for="cars">Choose an activity by type:</label>
-                      <select id="activity" name="activity">
-                      <option value="relaxation">Relaxation</option>
-                      <option value="cooking">Cooking</option>
-                      <option value="">Education</option>
-                      <option value="">Recreational</option>
-                      <option value="">Social</option>
-                      <option value="">DIY</option>
-                      <option value="">Charity</option>
-                      <option value="">Music</option>
-                      <option value="">Busywork</option>
-                      <input class="submit" type="submit" value="Submit" />
-                     </select>
-                   </div>
-                        
-                    <div class="searchDiv">
-                        <label for="participants">Choose number of participants:</label>
-                      <select id="participants" name="participants">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <input class="submit" type="submit" value="Submit" />
-                     </select>
-                    </div>
+                      <div class="activity">
+                        <label class="label" for="activity">Choose an activity by type:</label>
+                        <select id="activity" name="activity">
+                        <option value="relaxation">Relaxation</option>
+                        <option value="cooking">Cooking</option>
+                        <option value="">Education</option>
+                        <option value="">Recreational</option>
+                        <option value="">Social</option>
+                        <option value="">DIY</option>
+                        <option value="">Charity</option>
+                        <option value="">Music</option>
+                        <option value="">Busywork</option>
+                        </select>
+                      </div>
+                      <div class="participants">
+                        <label class="label" for="participants">Choose number of participants:</label>
+                        <select id="participants" name="participants">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        </select>
+                     </div>
+                     <input class="submit" type="submit" value="Search" />
+                    
                   
                     <div class="searchDiv">
-                        <label for="search-random">I can't decide, select a random activity for me!</label>
+                        <label class="label" for="search-random">I can't decide, select a random activity for me!</label>
                         <button class="submit" id="search-random">Search</button>
                     </div>
+                  </div>
                 </div>
+            <div class="col-lg-4" id="history">
+              <div id="history-area">
+              <h2 id="history-text">Previous Activities</h2>
+              <ul id="activity-history"></ul>
               </div>
-
-             <div class="row">
-                <div class="col-lg-6" id="history">
-                    <ul id="activity-history">
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
             </div>
+          </div>
          </div>
     </section>
 
