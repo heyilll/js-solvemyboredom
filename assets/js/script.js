@@ -24,8 +24,8 @@ $("#search-button").on("click", function(event) {
         method: "GET"
     }).then(response => extractInfo(response));
 
-    searchNum = $("#number-input").val("1");
-    searchType = $("#type-input").val("1");
+    searchNum = $("#number-input").val("0");
+    searchType = $("#type-input").val("0");
 });
 
 $("#random-button").on("click", function(event) {
