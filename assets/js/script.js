@@ -1,5 +1,9 @@
 // tracks activity history
-var pastactivities = [];
+var activitiesList = [];
+
+readFromStorage();
+createHistButtons();
+
 
 // to be integrated with html
 $("#search-button").on("click", function(event) {
@@ -58,7 +62,8 @@ function extractInfo({activity, link, price}) {
     // pastactivities.unshift(activity);
     // console.log(pastactivities);
     // localStorage.getItem(activity, JSON.stringify(link,price));
-
+    addToList(activity);
+    writeToStorage(activitiesList);
     youTubeSearch (activity);
 }
 
@@ -82,6 +87,55 @@ function youTubeSearch (text){
 
         // link to the html element to add src
         console.log(embeded_link);
-        // $("#videoembed").attr("src", embeded_link);
+        readFromStorage();
+        createHistButtons();
     });
+}
+
+
+function readFromStorage() {
+  var storedActivities = JSON.parse(localStorage.getItem("activity-history"));
+  if (storedActivities !== null) {
+    activitiesList = storedActivities;
+    console.log(activitiesList);
+  }
+}
+
+function writeToStorage(text) {
+  localStorage.setItem("activity-history", JSON.stringify(text));
+}
+
+function addToList(text) {
+  var allDiff = 1;
+  if (activitiesList.length != 0) {
+    for (var i = 0; i < activitiesList.length; i++) {
+      if (activitiesList[i] == text) {
+        allDiff = 0;
+      }
+    }
+    if (allDiff == 1) {
+      activitiesList.unshift(text);
+      activitiesList.length = Math.min(activitiesList.length, 8);
+      // console.log(searchList);
+      allDiff = 0;
+    }
+  } else {
+    activitiesList.unshift(text);
+  }
+}
+
+function createHistButtons() {
+  $("#activity-history").empty();
+  for (var i = 0; i < activitiesList.length; i++) {
+    var btn = $('<button onclick="histBtn(this)">')
+      .text(activitiesList[i])
+      .attr("class", "submit btn-block")
+    $("#activity-history").append(btn);
+  }
+}
+
+function histBtn(element) {
+    let text = element.innerText;
+    console.log(text);
+
 }
