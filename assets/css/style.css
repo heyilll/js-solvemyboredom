@@ -1,27 +1,42 @@
 body {
     background-color: rgb(46, 0, 183);
 }
+
 /* jumbotron styling */
 .jumbotron {
     background-color: rgb(46, 0, 183);
-    height: 200px;
+    height: 15vw;
     overflow: none;
     padding-top: 5px;
     padding-bottom: 30px;
-    margin-bottom: 0px;
-    max-width: 100%;
 }
  .jumbotron h1 {
     font-size: 5vw;
+    text-align: center;
+    object-fit: cover;
+    color: white;
+    font-weight: 900;
+    margin-top: 4vw;
+    letter-spacing: 0.1em;
  }
 
+ .container main {
+    margin-left: 0 !important;
+ }
  .jumbotron h1:hover {
     color: rgb(255, 98, 192);
  }
-.container {
-    margin-right: 5%;
-    margin-left: 5%;
-    white-space: nowrap;
+
+
+.animation {
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    width: 75%;
+}
+
+.animation-area {
+    max-width: 25vw;
+    max-height: 25vw;
 }
  /* navbar styling */
 .navbar {
@@ -29,6 +44,37 @@ body {
 
 .nav-link {
     color: white;
+    font-size: 1vw;
+}
+
+.nav-item {
+    width: 6vw;
+    height:100%;
+    margin: 1vw;
+    margin-top: 0vw;
+    text-align: center;
+}
+.navbar-toggler {
+    background-color: rgb(255, 239, 249);
+  }
+#home {
+    background-color: #f90891;
+    border-radius: 5vw;
+}
+
+#nav-about {
+    background-color: #fff42b;
+    border-radius: 5vw;
+}
+
+#activities {
+    background-color: #00d363;
+    border-radius: 5vw;
+}
+
+#nav-history {
+    background-color: #f99600;
+    border-radius: 5vw;
 }
 
 .navbar-brand {
@@ -39,66 +85,93 @@ body {
     color: #f90891;
 }
 
-.display-4 {
+/* about section */
+#about-text {
+    margin-top: 4vw;
+    margin-bottom: 2vw;
+    font-size: 3vw;
+    color: rgb(255, 98, 192);
+}
+
+.about {
+    margin-bottom: 5vw;
+    align-items: center;
     color: white;
-    font-weight: 900;
     text-align: center;
 }
 
+#about h3 {
+    font-size: 2vw;
+    margin-bottom: 3vw;
+    letter-spacing: 0.1em;
+    font-family: 'EB Garamond', serif;
+}
 
 
 /* activity and participants drop downs */
 .activity {
     margin-bottom: 5%;
+    margin-top: 5%;
+    padding: 5%;
+    align-items: center;
 }
-
 .participants {
     margin-bottom: 5%;
+    padding: 5%;
 }
 
 .searchDiv {
     padding-bottom: 20px;
-    padding-top: 20px;
+    padding-top: 10px;
+}
+.searchDiv h4 {
+margin-top: 0.5vw;
+margin-bottom: 3vw;
+font-size: 1.5vw;
+color: white;
 }
 
 .submit {
-    background-color: 
-    rgb(249, 157, 28);;
-    border: none;
+    background-color: rgb(254, 68, 130);
     border-radius: 5vw;
     color: white;
     display: block;
+    margin-top: 1vw;
+    margin-bottom: 3vw;
     width: 100%;
-    justify-items: left;
-    margin-top: 3%;
-    margin-bottom: 3%;
+    border: none;
 }
 
 .submit:hover {
-    background-color: rgb(248, 196, 247);
+    background-color: rgb(245, 83, 242);
 }
 
 /* activity search area */
+
 #search {
     margin-top: 5%;
     border-color: none;
-    background-color: rgb(20, 216, 255);
+    padding-left: 1vw;
+    padding-right: 3vw;
     font-size: 1.5vw;
     font-family: 'Raleway', sans-serif;
+}
+
+#search-area {
+    background-color: white;
+    color:rgb(46, 0, 183);
     border-radius: 5vw;
+    font-size: 2vw;
+    padding: 5%;
 }
 
 #history {
     margin-top: 5%;
-    border-color: none;
-}
-
-#history {
-    max-width: 100%;
 }
 
 .label {
-    color:rgb(46, 0, 183);
+    margin-right: 1vw;
+   
 }
 
 .container-search {
@@ -108,26 +181,40 @@ body {
 
 #activity-text {
     text-align: center;
-    color: rgb(46, 0, 183);
-    padding-top: 5%;
-    padding-bottom: 5%;
-    font-weight: 800;
+    color: white;
+    background-color:rgb(15, 183, 255);
+    border-radius: 5vw;
+    width: 100%;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    font-size: 2vw;
+    font-weight: bolder;
     font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
 }
+
 
 #history-text {
     text-align: center ;
-    color: rgb(46, 0, 183);
-    padding-top: 15%;
+    color: white;
+    padding: 1vw;
+    background-color: rgb(184, 32, 255);
+    border-radius: 5vw;
+    font-size: 2vw;
     font-weight: 800;
     font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
 }
 
 #history-area {
-    background-color: rgb(20, 216, 255);
-    width: 75%;
     height: 100%;
+    font-size: 1vw;
     font-family: 'Raleway', sans-serif;
+}
+
+#activity-history {
+    background-color: white;
+    color:rgb(46, 0, 183);
     border-radius: 5vw;
-    margin-left: 5%;
+    height: 100%;
 }
