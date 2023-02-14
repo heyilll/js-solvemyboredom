@@ -154,6 +154,17 @@ color: white;
     background-color: rgb(245, 83, 242);
 }
 
+.hist-btn {
+    background-color: rgb(157, 1, 84);
+    border-radius: 5vw;
+    color: white;
+    display: block;
+    margin-top: 1vw;
+    margin-bottom: 3vw;
+    width: 100%;
+    border: none;
+}
+
 /* activity search area */
 
 #search {
