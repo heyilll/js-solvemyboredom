@@ -265,12 +265,13 @@ nav.open .nav-content span{
 
 
 .flip-card-front {
-  background-color: #bbbbbb5b;
+  background-color: #1b74afab;
   color: black;
 }
 
 /* Style the back side */
 .flip-card-back {
-  background-color: #bbbbbb5b;
+  background-color: #1b74afab;
   transform: rotateY(180deg);
 }
+
