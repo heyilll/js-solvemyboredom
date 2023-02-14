@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap" rel="stylesheet">
     <title></title>
 </head>
 
@@ -22,82 +25,102 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <li class="nav-item active" id="home">
+            <a class="nav-link" href="#main">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+          <li class="nav-item" id="nav-about">
+            <a class="nav-link" href="#about">About</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Activities</a>
+          <li class="nav-item" id="activities">
+            <a class="nav-link" href="#search-area">Activities</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">History</a>
+          <li class="nav-item" id="nav-history">
+            <a class="nav-link" href="#history">History</a>
           </li>
            
         </ul>
       </div>
     </nav>
-  
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                   <lottie-player class="animation" src="https://assets4.lottiefiles.com/packages/lf20_XVBzBYKqBd.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
-                </div>
-            <div class-="row">
-                <div class="col-lg-8">
-                   <h1 class="display-4">Solve My Boredom</h1>
-                   <p class="lead"></p>
-                </div>
-            </div>
+    
+  <section>
+    <div class="container" id="main">
+        <div class="row no-gutters">
+          <div class="jumbotron col-12">
+            <h1 class="display-4">Solve My Boredom</h1>
+          </div>
+         </div>
+    </div>
+  </section>
+
+    <div class="container animation-area">
+      <div class="row">
+        <div class="col-10">
+             <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_XVBzBYKqBd.json"  background="transparent"  speed="1"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>
+       </div>
+     </div>
+   </div>
+
+    <div class="container about">
+      <div class="row">
+        <div class="col-12" id="about">
+          <h2 id="about-text">Bored? </h2>
+          <h3>Being bored doesn't mean you have to waste your time.<br>Let us help you learn a new skill, have fun and meet new people.<br>
+          <h3>You'll have no excuse to say I'm bored ever again!</h3>
           
         </div>
-      </div> 
+      </div>
     </div>
 
       <!--Search area-->
     <section>
-        <div class="container-search" id="search-area">
+        <div class="container-search">
              <div class="row">
-                <div class="col-lg-7" id="search">
+                <div class="col-12 col-sm-7 offset-md-1" id="search">
+
                   <h2 id="activity-text">Activity Search</h2>
                     <div class="searchDiv">
-                      <div class="activity" id="type-input">
-                        <label class="label" for="activity">Choose an activity by type:</label>
-                        <select id="activity" name="activity">
-                        <option value="0"></option>
-                        <option value="1">Relaxation</option>
-                        <option value="2">Cooking</option>
-                        <option value="3">Education</option>
-                        <option value="4">Recreational</option>
-                        <option value="5">Social</option>
-                        <option value="6">DIY</option>
-                        <option value="7">Charity</option>
-                        <option value="8">Music</option>
-                        <option value="9">Busywork</option>
-                        </select>
+                      <div>
+                        <h4>Search for activities by type or the number of participants. Not sure what you want? Use the random button to generate a random activity!</h4>
                       </div>
+                      <div id="search-area">
+                        <div id="search-block">
+                        <div class="activity" id="type-input">
+                          <label class="label" for="activity">Choose an activity by type:</label>
+                          <select id="activity" name="activity">
+                          <option value="0"></option>
+                          <option value="1">Relaxation</option>
+                          <option value="2">Cooking</option>
+                          <option value="3">Education</option>
+                          <option value="4">Recreational</option>
+                          <option value="5">Social</option>
+                          <option value="6">DIY</option>
+                          <option value="7">Charity</option>
+                          <option value="8">Music</option>
+                          <option value="9">Busywork</option>
+                          </select>
+                       </div>
                       <div class="participants" id="number-input">
-                        <label class="label" for="participants">Choose number of participants:</label>
-                        <select id="participants" name="participants">
-                        <option value="0"></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        </select>
-                     </div>
-                     <input class="submit" id="search-button" type="submit" value="Search" />
-                    
-                  
-                    <div class="searchDiv">
+                          <label class="label" for="participants">Choose number of participants:</label>
+                          <select id="participants" name="participants">
+                          <option value="0"></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          </select>
+                      </div>
+                        <input class="submit" id="search-button" type="submit" value="Search" />
+                      </div>
+                      <div class="search-random">
                         <label class="label" for="search-random">I can't decide, select a random activity for me!</label>
                         <button class="submit" id="random-button">Search</button>
+                      </div>
                     </div>
+                    
                   </div>
                 </div>
-            <div class="col-lg-5" id="history">
+            <div class="col-12 col-sm-3 ml-auto" id="history">
+
               <div id="history-area">
               <h2 id="history-text">Previous Activities</h2>
               <div id="activity-history"></div>
