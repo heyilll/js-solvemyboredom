@@ -16,6 +16,14 @@ createHistButtons();
 $("#search-button").on("click", function (event) {
   event.preventDefault();
 
+  let loader = `<div class="loader"></div>`;
+  document.getElementById('search-area').innerHTML = "";
+  document.getElementById('search-area').innerHTML = loader;
+
+  setTimeout(function () {
+    window.location.replace("./main.html");
+  }, 15000);
+
   var searchNum = $("#number-input :selected").text();
   var searchType = $("#type-input :selected").text().toLowerCase();
   var queryURL = "";
@@ -35,14 +43,20 @@ $("#search-button").on("click", function (event) {
     method: "GET",
   }).then((response) => extractInfo(response));
 
-  window.location.replace("./main.html");
-
   $("#number-input :selected").val("0");
   $("#type-input :selected").val("0");
 });
 
 $("#random-button").on("click", function (event) {
   event.preventDefault();
+
+  let loader = `<div class="loader"></div>`;
+  document.getElementById('search-area').innerHTML = "";
+  document.getElementById('search-area').innerHTML = loader;
+
+  setTimeout(function () {
+    window.location.replace("./main.html");
+  }, 15000);
 
   var queryURL = "https://www.boredapi.com/api/activity";
 
@@ -51,7 +65,6 @@ $("#random-button").on("click", function (event) {
     method: "GET",
   }).then((response) => extractInfo(response));
 
-  window.location.replace("./main.html");
 });
 
 // extracts info about activity
@@ -181,3 +194,17 @@ setInterval(function () {
     AIReady = 0;
   }
 }, 1000);
+
+function pickColor() {
+          
+  // Array containing colors
+  var colors = [
+      '#ff0000', '#00ff00', '#0000ff',
+      '#ff3333', '#ffff00', '#ff6600'
+  ];
+    
+  // selecting random color
+  var random_color = colors[Math.floor(Math.random() * colors.length)];
+    
+  return random_color;
+}
