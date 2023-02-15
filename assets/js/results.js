@@ -1,17 +1,27 @@
 var activitiesList = [];
 var youtubeLinksList = [];
 var AIResponsesList = [];
+var actionRequired;
+var historyIndex;
 
 emptyContent();
 readFromStorage();
 
+retreiveAction();
+if(actionRequired=="search"){
+  createSearchContent(activitiesList[0], youtubeLinksList[0], AIResponsesList[0]);
+}
+else if(actionRequired=="history"){
+  createHistContent(historyIndex);
+}
+
 // create content from search button
 function createSearchContent(act, ytLink, aiResp) {
-  $(".activity-gen").append(
+  $("#activity-gen").append(
     $("<h2>").attr("class", "activity-title").text(act)
   );
   $("#video").attr("src", ytLink);
-  displayResultsAI(aiResp);
+  displayResultsAI(aiResp, act);
 }
 
 // create content from hist btn
@@ -30,14 +40,15 @@ function displayResultsAI(textInput, act) {
     return;
   }
   var textInput_Split = textInput.split("\n");
-  $("#AI-Response").append(
+  console.log(textInput_Split);
+  $("#AI-response").append(
     $("<h2>")
       .attr("class", "ai-title")
       .text(`AI's Advice - ` + act)
   );
 
   textInput_Split.forEach((element) =>
-    $("#AI-Response").append(
+    $("#AI-response").append(
       $("<h3>").attr("class", "ai-content").text(element)
     )
   );
@@ -52,9 +63,7 @@ function readFromStorage() {
     activitiesList = storedActivities;
     youtubeLinksList = storedYtinks;
     AIResponsesList = storedAIResp;
-    // console.log(activitiesList);
-    // console.log(youtubeLinksList);
-    // console.log(AIResponsesList);
+    console.log("read from storage");
   }
 }
 
@@ -63,4 +72,10 @@ function emptyContent() {
   $("#AI-response").empty();
   $("#activity-gen").empty();
   console.log("content empty");
+}
+
+function retreiveAction (){
+  actionRequired = JSON.parse(localStorage.getItem("action-required"));
+  historyIndex = JSON.parse(localStorage.getItem("hist-btn-index"));
+  console.log("Action: "+ actionRequired + " Hist-no: "+ historyIndex);
 }

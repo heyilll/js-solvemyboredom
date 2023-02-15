@@ -74,10 +74,8 @@ function extractInfo({ activity, link, price }) {
     price = "Not found";
     link = "Not found";
   }
-
-  // $("#activity-title").text(activity);
-  // $("#activity-price").text(price);
-  // $("#activity-link").text(link);
+  currentAct = activity;
+  localStorage.setItem("action-required", JSON.stringify("search"));
 
   console.log(activity);
   // console.log(price);
@@ -127,6 +125,8 @@ $(document).on("click", ".hist-btn", retreiveInfo);
 
 function retreiveInfo() {
   var index = $(this).attr("index");
+  localStorage.setItem("action-required", JSON.stringify("history"));
+  localStorage.setItem("hist-btn-index", JSON.stringify(index));
   window.location.replace("./main.html");
   console.log(index);
 }
@@ -136,7 +136,7 @@ function chatGPT(text) {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "X-RapidAPI-Key": "45eb3a6e39msh58e5db491f7cc7cp104a72jsn525235543001",
+      "X-RapidAPI-Key": "2ae5dcbf0fmsh382aef7be3f7304p1c4366jsn4f2ac730d889",
       "X-RapidAPI-Host": "you-chat-gpt.p.rapidapi.com",
     },
     body: `{"question": "${text}", "max_response_time":10}`,
@@ -152,7 +152,7 @@ function chatGPT(text) {
     })
     .catch((err) => {
       console.error(err);
-      currentAIResp = "Even AI's can run into errors";
+      currentAIResp = "Even AIs can run into errors";
     });
 }
 
@@ -168,6 +168,7 @@ function readFromStorage() {
     // console.log(activitiesList);
     // console.log(youtubeLinksList);
     // console.log(AIResponsesList);
+    console.log("read from storage");
   }
 }
 
@@ -175,6 +176,7 @@ function writeToStorage(actList, ytUrlList, AIrespList) {
   localStorage.setItem("activity-history", JSON.stringify(actList));
   localStorage.setItem("ytUrl-history", JSON.stringify(ytUrlList));
   localStorage.setItem("AIresp-history", JSON.stringify(AIrespList));
+  console.log("write to storage");
 }
 
 function addToList(act, ytUrl, AIresp) {
@@ -184,6 +186,7 @@ function addToList(act, ytUrl, AIresp) {
   activitiesList.length = Math.min(activitiesList.length, 8);
   youtubeLinksList.length = Math.min(youtubeLinksList.length, 8);
   AIResponsesList.length = Math.min(AIResponsesList.length, 8);
+  console.log("add to list");
 }
 
 setInterval(function () {
