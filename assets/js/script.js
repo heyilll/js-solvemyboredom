@@ -14,6 +14,14 @@ createHistButtons();
 $("#search-button").on("click", function (event) {
   event.preventDefault();
 
+  let loader = `<div class="loader"></div>`;
+  document.getElementById('search-area').innerHTML = "";
+  document.getElementById('search-area').innerHTML = loader;
+
+  setTimeout(function () {
+    window.location.replace("./main.html");
+  }, 5000);
+
   var searchNum = $("#number-input :selected").text();
   var searchType = $("#type-input :selected").text().toLowerCase();
   var queryURL = "";
@@ -32,8 +40,8 @@ $("#search-button").on("click", function (event) {
     url: queryURL,
     method: "GET",
   }).then((response) => extractInfo(response));
-
-  window.location.replace("./main.html");
+  $("#activity-title").text("tttttttttttttt");
+  // window.location.replace("./main.html");
 
   $("#number-input :selected").val("0");
   $("#type-input :selected").val("0");
@@ -60,7 +68,8 @@ function extractInfo({ activity, link, price }) {
     link = "Not found";
   }
 
-  $("#activity-title").text(activity);
+  $("#activity-title").text("tttttttttttttt");
+  document.getElementById("activity-title").innerHTML="tttttttttttttttttt";
   $("#activity-price").text(price);
   $("#activity-link").text(link);
 
@@ -105,6 +114,7 @@ function createHistButtons() {
       .text(activitiesList[i])
       .attr("index", i)
       .attr("class", "hist-btn");
+    // btn.style.color = pickColor();
     $("#activity-history").append(btn);
   }
 }
@@ -184,4 +194,18 @@ function addToList(act, ytUrl, AIresp) {
   activitiesList.length = Math.min(activitiesList.length, 8);
   youtubeLinksList.length = Math.min(youtubeLinksList.length, 8);
   AIResponsesList.length = Math.min(AIResponsesList.length, 8);
+}
+
+function pickColor() {
+          
+  // Array containing colors
+  var colors = [
+      '#ff0000', '#00ff00', '#0000ff',
+      '#ff3333', '#ffff00', '#ff6600'
+  ];
+    
+  // selecting random color
+  var random_color = colors[Math.floor(Math.random() * colors.length)];
+    
+  return random_color;
 }
