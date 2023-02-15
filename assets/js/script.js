@@ -181,17 +181,3 @@ setInterval(function () {
     AIReady = 0;
   }
 }, 1000);
-
-function pickColor() {
-          
-  // Array containing colors
-  var colors = [
-      '#ff0000', '#00ff00', '#0000ff',
-      '#ff3333', '#ffff00', '#ff6600'
-  ];
-    
-  // selecting random color
-  var random_color = colors[Math.floor(Math.random() * colors.length)];
-    
-  return random_color;
-}
