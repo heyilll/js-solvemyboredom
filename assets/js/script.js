@@ -33,6 +33,8 @@ $("#search-button").on("click", function (event) {
     method: "GET",
   }).then((response) => extractInfo(response));
 
+  window.location.replace("./main.html");
+
   $("#number-input :selected").val("0");
   $("#type-input :selected").val("0");
 });
@@ -46,14 +48,16 @@ $("#random-button").on("click", function (event) {
     url: queryURL,
     method: "GET",
   }).then((response) => extractInfo(response));
+
+  window.location.replace("./main.html");
 });
 
 // extracts info about activity
 function extractInfo({ activity, link, price }) {
   if (!activity) {
     activity = "No activity found with the specified parameters";
-    price = "";
-    link = "";
+    price = "Not found";
+    link = "Not found";
   }
 
   $("#activity-title").text(activity);
@@ -62,11 +66,6 @@ function extractInfo({ activity, link, price }) {
 
   console.log(activity);
   console.log(price);
-
-  // testing for local storage
-  // pastactivities.unshift(activity);
-  // console.log(pastactivities);
-  // localStorage.getItem(activity, JSON.stringify(link,price));
 
   try {
     youTubeSearch(activity);
@@ -114,6 +113,7 @@ $(document).on("click", ".hist-btn", retreiveInfo);
 
 function retreiveInfo(){
   var index = $(this).attr("index");
+  window.location.replace("./main.html");
   console.log(index);
 }
 
