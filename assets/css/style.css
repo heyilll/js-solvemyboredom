@@ -40,7 +40,9 @@ body {
 }
  /* navbar styling */
 .navbar {
-    background-color: rgb(46, 0, 183)}
+    background-color: rgb(46, 0, 183);
+
+}
 
 .nav-link {
     color: white;
@@ -55,8 +57,9 @@ body {
     text-align: center;
 }
 .navbar-toggler {
-    background-color: rgb(255, 239, 249);
+    background-color:rgb(46, 0, 183);
   }
+
 #home {
     background-color: #f90891;
     border-radius: 5vw;
@@ -85,6 +88,11 @@ body {
     color: #f90891;
 }
 
+#image {
+    border-radius: 50%;
+    width: 10vw;
+    height: 10vw;
+}
 /* about section */
 #about-text {
     margin-top: 4vw;
@@ -146,6 +154,17 @@ color: white;
     background-color: rgb(245, 83, 242);
 }
 
+.hist-btn {
+    background-color: rgb(157, 1, 84);
+    border-radius: 5vw;
+    color: white;
+    display: block;
+    margin-top: 1vw;
+    margin-bottom: 3vw;
+    width: 100%;
+    border: none;
+}
+
 /* activity search area */
 
 #search {
@@ -158,7 +177,7 @@ color: white;
 }
 
 #search-area {
-    background-color: white;
+    background-color:rgb(15, 183, 255);
     color:rgb(46, 0, 183);
     border-radius: 5vw;
     font-size: 2vw;
@@ -207,14 +226,14 @@ color: white;
 }
 
 #history-area {
-    height: 100%;
+    height: 75%;
     font-size: 1vw;
     font-family: 'Raleway', sans-serif;
 }
 
 #activity-history {
-    background-color: white;
+    background-color: none;
     color:rgb(46, 0, 183);
     border-radius: 5vw;
-    height: 100%;
+    margin-top: 3vw;
 }

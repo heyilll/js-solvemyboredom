@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(46, 0, 183);
+}
+
+.header {
+    margin-top: 5vw;
+}
+
+.title {
+    text-align: center;
+    margin-top: 5vw;
+    color: white;
+}
+
+.title h1 {
+    font-size: 5vw;
+}
+
+.activity-gen {
+    text-align: center;
+    color: white;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+}
+
+#image {
+    border-radius: 50%;
+}
+
+.video{
+    width: 800px;
+    height: 450px;
+    border: solid;
+    border-color: white;
+}
+
+
+.AI-response {
+    border: solid;
+    border-color: white;
+    height: 100%;
+    width: 100%;
+    margin-top: 5vw;
+}
+
+.AI-response h2 {
+color: white;
+}
+
