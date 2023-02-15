@@ -6,6 +6,8 @@ var textAnswerAI = "";
 var currentAct;
 var currentYTLink;
 var currentAIResp;
+var ytReady = 0;
+var AIReady = 0;
 
 readFromStorage();
 createHistButtons();
@@ -13,14 +15,6 @@ createHistButtons();
 // to be integrated with html
 $("#search-button").on("click", function (event) {
   event.preventDefault();
-
-  let loader = `<div class="loader"></div>`;
-  document.getElementById('search-area').innerHTML = "";
-  document.getElementById('search-area').innerHTML = loader;
-
-  setTimeout(function () {
-    window.location.replace("./main.html");
-  }, 5000);
 
   var searchNum = $("#number-input :selected").text();
   var searchType = $("#type-input :selected").text().toLowerCase();
@@ -40,8 +34,8 @@ $("#search-button").on("click", function (event) {
     url: queryURL,
     method: "GET",
   }).then((response) => extractInfo(response));
-  $("#activity-title").text("tttttttttttttt");
-  // window.location.replace("./main.html");
+
+  window.location.replace("./main.html");
 
   $("#number-input :selected").val("0");
   $("#type-input :selected").val("0");
@@ -68,13 +62,12 @@ function extractInfo({ activity, link, price }) {
     link = "Not found";
   }
 
-  $("#activity-title").text("tttttttttttttt");
-  document.getElementById("activity-title").innerHTML="tttttttttttttttttt";
-  $("#activity-price").text(price);
-  $("#activity-link").text(link);
+  // $("#activity-title").text(activity);
+  // $("#activity-price").text(price);
+  // $("#activity-link").text(link);
 
   console.log(activity);
-  console.log(price);
+  // console.log(price);
 
   try {
     youTubeSearch(activity);
@@ -100,11 +93,9 @@ function youTubeSearch(text) {
     var youTube_link = response.items[0].url;
     var embeded_link = youTube_link.replace("watch?v=", "embed/");
     currentYTLink = embeded_link;
+    console.log(currentYTLink);
+    ytReady = 1;
   });
-}
-
-function writeToStorage(text) {
-  localStorage.setItem("activity-history", JSON.stringify(text));
 }
 
 function createHistButtons() {
@@ -114,14 +105,14 @@ function createHistButtons() {
       .text(activitiesList[i])
       .attr("index", i)
       .attr("class", "hist-btn");
-    // btn.style.color = pickColor();
     $("#activity-history").append(btn);
   }
+  console.log("hist btns created");
 }
 
 $(document).on("click", ".hist-btn", retreiveInfo);
 
-function retreiveInfo(){
+function retreiveInfo() {
   var index = $(this).attr("index");
   window.location.replace("./main.html");
   console.log(index);
@@ -142,28 +133,14 @@ function chatGPT(text) {
   fetch("https://you-chat-gpt.p.rapidapi.com/TextOnly", options)
     .then((response) => response.json())
     .then((response) => {
-      // console.log(response.answer);
+      console.log(response.answer);
       currentAIResp = response.answer;
-      var textAnswerAI_Split = currentAIResp.split("\n");
-
-      addToList(currentAct, currentYTLink, currentAIResp);
-      writeToStorage(activitiesList, youtubeLinksList, AIResponsesList);
-      displayResultsAI(textAnswerAI_Split);
-      createHistButtons();
-      // return response.answer;
+      AIReady = 1;
     })
-    .catch((err) => console.error(err));
-}
-
-function displayResultsAI(textInput) {
-  // Get a reference to the `.wiki-search` element
-  $("#display-results").empty();
-  $("#display-results").append(
-    $("<h2>").text("AI's Advice - " + activitiesList[0])
-  );
-  textInput.forEach((element) =>
-    $("#display-results").append($("<h3>").text(element))
-  );
+    .catch((err) => {
+      console.error(err);
+      currentAIResp = "Even AI's can run into errors";
+    });
 }
 
 // local storrage stuff
@@ -195,6 +172,15 @@ function addToList(act, ytUrl, AIresp) {
   youtubeLinksList.length = Math.min(youtubeLinksList.length, 8);
   AIResponsesList.length = Math.min(AIResponsesList.length, 8);
 }
+
+setInterval(function () {
+  if (ytReady == 1 && AIReady == 1) {
+    addToList(currentAct, currentYTLink, currentAIResp);
+    writeToStorage(activitiesList, youtubeLinksList, AIResponsesList);
+    ytReady = 0;
+    AIReady = 0;
+  }
+}, 1000);
 
 function pickColor() {
           
