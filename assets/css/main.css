@@ -1,14 +1,20 @@
+*{
+    width:100%;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
 body {
     background-color: rgb(46, 0, 183);
 }
 
-.header {
-    margin-top: 5vw;
-}
+
 
 .title {
     text-align: center;
-    margin-top: 5vw;
+   
     color: white;
 }
 
@@ -19,8 +25,7 @@ body {
 .activity-gen {
     text-align: center;
     color: white;
-    margin-top: 5vw;
-    margin-bottom: 5vw;
+   
 }
 
 #image {
@@ -40,10 +45,96 @@ body {
     border-color: white;
     height: 100%;
     width: 100%;
-    margin-top: 5vw;
+    color: white
+ 
 }
 
 .AI-response h2 {
 color: white;
 }
+
+
+.logo{
+    margin-right: 100px;
+    max-width: 50%;
+    height: auto;
+  
+  }
+  
+  
+  
+  
+  
+ 
+  
+  .col-sm-12{
+    margin: auto;
+    padding: 0%;
+  }
+  
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .video {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
+  
+  
+  html {
+    height:100%;
+  }
+  
+  
+  
+  .bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #4361EE 50%, #B5179E 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+  h1 {
+    font-family:monospace;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
+  
+  .jumbotron{
+    color: transparent;
+    background-color: transparent;
+  }
+
+  
 
