@@ -124,13 +124,15 @@ function youTubeSearch(text) {
 function createHistButtons() {
   $("#activity-history").empty();
   for (var i = 0; i < activitiesList.length; i++) {
+    if(activitiesList[i]){
     var btn = $("<button>")
       .text(activitiesList[i])
       .attr("index", i)
-      .attr("class", "hist-btn");
-    btn.css('background-color', pickColor());  
+      .attr("class", "hist-btn")
+      .css('background-color', pickColor());  
     $("#activity-history").append(btn);
   }
+}
   console.log("hist btns created");
 }
 
@@ -215,12 +217,14 @@ function pickColor() {
           
   // Array containing colors
   var colors = [
-      '#ff0000', '#00ff00', '#0000ff',
-      '#ff3333', '#ff6600', '#e76f51',
-      '#2a9d8f', '#f4a261', 'rgba(100,198,199,255)',
+      // '#ff0000', '#00ff00', '#0000ff',
+      // '#ff3333', '#ff6600', '#e76f51',
+      // '#2a9d8f', '#f4a261', 
+      'rgba(100,198,199,255)',
       'rgba(249,150,32,255)', 'rgba(239,102,150,255)',
       'rgba(244,206,34,255)', 'rgba(239,54,69,255)',
-      'rgba(114,187,161,255)'
+      'rgba(114,187,161,255)','rgb(181,114,114)','rgb(30,129,176)',
+      'rgb(234,182,118)','#8BF18B','#9B6EF3'
   ];
     
   // selecting random color
