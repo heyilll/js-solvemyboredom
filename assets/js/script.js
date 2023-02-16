@@ -20,9 +20,15 @@ $("#search-button").on("click", function (event) {
   document.getElementById('search-area').innerHTML = "";
   document.getElementById('search-area').innerHTML = loader;
 
-  setTimeout(function () {
-    window.location.replace("./main.html");
-  }, 15000);
+  setInterval(function () {
+    if (ytReady == 1 && AIReady == 1) {
+      addToList(currentAct, currentYTLink, currentAIResp);
+      writeToStorage(activitiesList, youtubeLinksList, AIResponsesList);
+      ytReady = 0;
+      AIReady = 0;
+      window.location.replace("./main.html");
+    }
+  }, 1000);
 
   var searchNum = $("#number-input :selected").text();
   var searchType = $("#type-input :selected").text().toLowerCase();
@@ -54,9 +60,15 @@ $("#random-button").on("click", function (event) {
   document.getElementById('search-area').innerHTML = "";
   document.getElementById('search-area').innerHTML = loader;
 
-  setTimeout(function () {
-    window.location.replace("./main.html");
-  }, 15000);
+  setInterval(function () {
+    if (ytReady == 1 && AIReady == 1) {
+      addToList(currentAct, currentYTLink, currentAIResp);
+      writeToStorage(activitiesList, youtubeLinksList, AIResponsesList);
+      ytReady = 0;
+      AIReady = 0;
+      window.location.replace("./main.html");
+    }
+  }, 1000);
 
   var queryURL = "https://www.boredapi.com/api/activity";
 
@@ -116,6 +128,7 @@ function createHistButtons() {
       .text(activitiesList[i])
       .attr("index", i)
       .attr("class", "hist-btn");
+    btn.css('background-color', pickColor());  
     $("#activity-history").append(btn);
   }
   console.log("hist btns created");
@@ -139,7 +152,7 @@ function chatGPT(text) {
       "X-RapidAPI-Key": "2ae5dcbf0fmsh382aef7be3f7304p1c4366jsn4f2ac730d889",
       "X-RapidAPI-Host": "you-chat-gpt.p.rapidapi.com",
     },
-    body: `{"question": "${text}", "max_response_time":10}`,
+    body: `{"question": "How to ${text} in four sentences?", "max_response_time":10}`,
   };
 
   // console.log(options.body);
@@ -189,14 +202,14 @@ function addToList(act, ytUrl, AIresp) {
   console.log("add to list");
 }
 
-setInterval(function () {
-  if (ytReady == 1 && AIReady == 1) {
-    addToList(currentAct, currentYTLink, currentAIResp);
-    writeToStorage(activitiesList, youtubeLinksList, AIResponsesList);
-    ytReady = 0;
-    AIReady = 0;
-  }
-}, 1000);
+// setInterval(function () {
+//   if (ytReady == 1 && AIReady == 1) {
+//     addToList(currentAct, currentYTLink, currentAIResp);
+//     writeToStorage(activitiesList, youtubeLinksList, AIResponsesList);
+//     ytReady = 0;
+//     AIReady = 0;
+//   }
+// }, 1000);
 
 function pickColor() {
           
