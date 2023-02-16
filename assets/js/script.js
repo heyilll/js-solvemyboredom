@@ -216,7 +216,11 @@ function pickColor() {
   // Array containing colors
   var colors = [
       '#ff0000', '#00ff00', '#0000ff',
-      '#ff3333', '#ffff00', '#ff6600'
+      '#ff3333', '#ff6600', '#e76f51',
+      '#2a9d8f', '#f4a261', 'rgba(100,198,199,255)',
+      'rgba(249,150,32,255)', 'rgba(239,102,150,255)',
+      'rgba(244,206,34,255)', 'rgba(239,54,69,255)',
+      'rgba(114,187,161,255)'
   ];
     
   // selecting random color
