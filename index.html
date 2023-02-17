@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="#image"></a>
       <img id="image" src="./images/logo.png">
@@ -43,23 +44,24 @@
       </div>
     </nav>
     
+  <!-- about section with starting information -->
   <section>
     <div class="container" id="main">
-        <div class="row no-gutters">
-          <div class="jumbotron col-12">
-            <h1 class="display-4">Solve My Boredom</h1>
-          </div>
-         </div>
+      <div class="row no-gutters">
+        <div class="jumbotron col-12">
+          <h1 class="display-4">Solve My Boredom</h1>
+        </div>
+      </div>
     </div>
   </section>
 
     <div class="container animation-area">
       <div class="row">
         <div class="col-12">
-             <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_XVBzBYKqBd.json"  background="transparent"  speed="1"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>
-       </div>
-     </div>
-   </div>
+          <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_XVBzBYKqBd.json"  background="transparent"  speed="1"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>
+        </div>
+      </div>
+    </div>
 
     <div class="container about">
       <div class="row">
@@ -72,62 +74,63 @@
       </div>
     </div>
 
-      <!--Search area-->
+    <!--Search area-->
     <section>
-        <div class="container-search">
-             <div class="row">
-                <div class="col-12 col-sm-7" id="search">
+      <div class="container-search">
+        <div class="row">
+          <div class="col-12 col-sm-7" id="search">
 
-                  <h2 id="activity-text">Activity Search</h2>
-                    <div class="searchDiv">
-                      <div>
-                        <h4>Search for activities by type or the number of participants. Not sure what you want? Use the random button to generate a random activity!</h4>
-                      </div>
-                      <div id="search-area">
-                        <div id="search-block">
-                        <div class="activity" id="type-input">
-                          <label class="label" for="activity">Choose an activity by type:</label>
-                          <select id="activity" name="activity">
-                          <option value="0"></option>
-                          <option value="1">Relaxation</option>
-                          <option value="2">Cooking</option>
-                          <option value="3">Education</option>
-                          <option value="4">Recreational</option>
-                          <option value="5">Social</option>
-                          <option value="6">DIY</option>
-                          <option value="7">Charity</option>
-                          <option value="8">Music</option>
-                          <option value="9">Busywork</option>
-                          </select>
-                       </div>
-                      <div class="participants" id="number-input">
-                          <label class="label" for="participants">Choose number of participants:</label>
-                          <select id="participants" name="participants">
-                          <option value="0"></option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          </select>
-                      </div>
-                        <input class="submit" id="search-button" type="submit" value="Search" />
-                      </div>
-                      <div class="search-random">
-                        <label class="label" for="search-random">I can't decide, select a random activity for me!</label>
-                        <button class="submit" id="random-button">Search</button>
-                      </div>
-                    </div>
-                    
+            <h2 id="activity-text">Activity Search</h2>
+            <div class="searchDiv">
+              <div>
+                <h4>Search for activities by type or the number of participants. Not sure what you want? Use the random button to generate a random activity!</h4>
+              </div>
+              <div id="search-area">
+                <div id="search-block">
+                  <div class="activity" id="type-input">
+                    <label class="label" for="activity">Choose an activity by type:</label>
+                    <select id="activity" name="activity">
+                      <option value="0"></option>
+                      <option value="1">Relaxation</option>
+                      <option value="2">Cooking</option>
+                      <option value="3">Education</option>
+                      <option value="4">Recreational</option>
+                      <option value="5">Social</option>
+                      <option value="6">DIY</option>
+                      <option value="7">Charity</option>
+                      <option value="8">Music</option>
+                      <option value="9">Busywork</option>
+                    </select>
                   </div>
+                  <div class="participants" id="number-input">
+                    <label class="label" for="participants">Choose number of participants:</label>
+                    <select id="participants" name="participants">
+                      <option value="0"></option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                  <input class="submit" id="search-button" type="submit" value="Search" />
                 </div>
-            <div class="col-12 col-sm-5" id="history">
-                <div id="history-area">
-                   <h2 id="history-text">Previous Activities</h2>
-                     <div id="activity-history"></div>
+                <div class="search-random">
+                  <label class="label" for="search-random">I can't decide, select a random activity for me!</label>
+                  <button class="submit" id="random-button">Search</button>
                 </div>
+              </div>
+            
             </div>
           </div>
-         </div>
+          <!-- history/previous activities section    -->
+          <div class="col-12 col-sm-5" id="history">
+            <div id="history-area">
+              <h2 id="history-text">Previous Activities</h2>
+              <div id="activity-history"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- jQuery -->

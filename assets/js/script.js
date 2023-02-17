@@ -12,14 +12,21 @@ var AIReady = 0;
 readFromStorage();
 createHistButtons();
 
-// to be integrated with html
+// search button event listener
 $("#search-button").on("click", function (event) {
   event.preventDefault();
 
+  // gets user parameters from input fields
+  var searchNum = $("#participants").find("option:selected").text();
+  var searchType = $("#activity").find("option:selected").text().toLowerCase();
+  var queryURL = "";
+
+  // loading animation
   let loader = `<div class="loader"></div>`;
   document.getElementById('search-area').innerHTML = "";
   document.getElementById('search-area').innerHTML = loader;
 
+  // checks if required info is ready 
   setInterval(function () {
     if (ytReady == 1 && AIReady == 1) {
       addToList(currentAct, currentYTLink, currentAIResp);
@@ -30,10 +37,6 @@ $("#search-button").on("click", function (event) {
     }
   }, 1000);
 
-  var searchNum = $("#number-input :selected").text();
-  var searchType = $("#type-input :selected").text().toLowerCase();
-  var queryURL = "";
-
   if (!searchNum && !searchType) {
     queryURL = "https://www.boredapi.com/api/activity/";
   } else if (searchNum && !searchType) {
@@ -42,8 +45,10 @@ $("#search-button").on("click", function (event) {
     queryURL = `https://www.boredapi.com/api/activity?type=${searchType}`;
   } else {
     queryURL = `https://www.boredapi.com/api/activity?type=${searchType}&participants=${searchNum}`;
+    
   }
 
+  // API call
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -53,13 +58,16 @@ $("#search-button").on("click", function (event) {
   $("#type-input :selected").val("0");
 });
 
+// random button event listener
 $("#random-button").on("click", function (event) {
   event.preventDefault();
 
+  // loading animation
   let loader = `<div class="loader"></div>`;
   document.getElementById('search-area').innerHTML = "";
   document.getElementById('search-area').innerHTML = loader;
 
+  // checks if required info is ready 
   setInterval(function () {
     if (ytReady == 1 && AIReady == 1) {
       addToList(currentAct, currentYTLink, currentAIResp);
@@ -72,6 +80,7 @@ $("#random-button").on("click", function (event) {
 
   var queryURL = "https://www.boredapi.com/api/activity";
 
+  // API call
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -88,9 +97,6 @@ function extractInfo({ activity, link, price }) {
   }
   currentAct = activity;
   localStorage.setItem("action-required", JSON.stringify("search"));
-
-  console.log(activity);
-  // console.log(price);
 
   try {
     youTubeSearch(activity);
@@ -112,32 +118,34 @@ function youTubeSearch(text) {
     },
   };
 
+  // API call
   $.ajax(settings).done(function (response) {
     var youTube_link = response.items[0].url;
     var embeded_link = youTube_link.replace("watch?v=", "embed/");
     currentYTLink = embeded_link;
-    console.log(currentYTLink);
     ytReady = 1;
   });
 }
 
+// dynamically creates history buttons
 function createHistButtons() {
   $("#activity-history").empty();
   for (var i = 0; i < activitiesList.length; i++) {
-    if(activitiesList[i]){
-    var btn = $("<button>")
-      .text(activitiesList[i])
-      .attr("index", i)
-      .attr("class", "hist-btn")
-      .css('background-color', pickColor());  
-    $("#activity-history").append(btn);
+    if(activitiesList[i]) {
+      var btn = $("<button>")
+        .text(activitiesList[i])
+        .attr("index", i)
+        .attr("class", "hist-btn")
+        .css('background-color', pickColor());  
+      $("#activity-history").append(btn);
+    }
   }
 }
-  console.log("hist btns created");
-}
 
+// history button event listener
 $(document).on("click", ".hist-btn", retreiveInfo);
 
+// retrieves info from the specific clicked history button
 function retreiveInfo() {
   var index = $(this).attr("index");
   localStorage.setItem("action-required", JSON.stringify("history"));
@@ -146,6 +154,7 @@ function retreiveInfo() {
   console.log(index);
 }
 
+// Handles ChatGPT API calls
 function chatGPT(text) {
   const options = {
     method: "POST",
@@ -157,11 +166,10 @@ function chatGPT(text) {
     body: `{"question": "How to ${text} in four sentences?", "max_response_time":10}`,
   };
 
-  // console.log(options.body);
+  // API call
   fetch("https://you-chat-gpt.p.rapidapi.com/TextOnly", options)
     .then((response) => response.json())
     .then((response) => {
-      console.log(response.answer);
       currentAIResp = response.answer;
       AIReady = 1;
     })
@@ -171,7 +179,7 @@ function chatGPT(text) {
     });
 }
 
-// local storrage stuff
+// read and write local storage functions
 function readFromStorage() {
   var storedActivities = JSON.parse(localStorage.getItem("activity-history"));
   var storedYtinks = JSON.parse(localStorage.getItem("ytUrl-history"));
@@ -180,10 +188,6 @@ function readFromStorage() {
     activitiesList = storedActivities;
     youtubeLinksList = storedYtinks;
     AIResponsesList = storedAIResp;
-    // console.log(activitiesList);
-    // console.log(youtubeLinksList);
-    // console.log(AIResponsesList);
-    console.log("read from storage");
   }
 }
 
@@ -191,7 +195,6 @@ function writeToStorage(actList, ytUrlList, AIrespList) {
   localStorage.setItem("activity-history", JSON.stringify(actList));
   localStorage.setItem("ytUrl-history", JSON.stringify(ytUrlList));
   localStorage.setItem("AIresp-history", JSON.stringify(AIrespList));
-  console.log("write to storage");
 }
 
 function addToList(act, ytUrl, AIresp) {
@@ -201,25 +204,11 @@ function addToList(act, ytUrl, AIresp) {
   activitiesList.length = Math.min(activitiesList.length, 8);
   youtubeLinksList.length = Math.min(youtubeLinksList.length, 8);
   AIResponsesList.length = Math.min(AIResponsesList.length, 8);
-  console.log("add to list");
 }
 
-// setInterval(function () {
-//   if (ytReady == 1 && AIReady == 1) {
-//     addToList(currentAct, currentYTLink, currentAIResp);
-//     writeToStorage(activitiesList, youtubeLinksList, AIResponsesList);
-//     ytReady = 0;
-//     AIReady = 0;
-//   }
-// }, 1000);
-
+// function that chooses a random color from an array of colors
 function pickColor() {
-          
-  // Array containing colors
   var colors = [
-      // '#ff0000', '#00ff00', '#0000ff',
-      // '#ff3333', '#ff6600', '#e76f51',
-      // '#2a9d8f', '#f4a261', 
       'rgba(100,198,199,255)',
       'rgba(249,150,32,255)', 'rgba(239,102,150,255)',
       'rgba(244,206,34,255)', 'rgba(239,54,69,255)',
@@ -227,6 +216,9 @@ function pickColor() {
       'rgb(234,182,118)','#8BF18B','#9B6EF3'
   ];
     
+    
+  // selecting random color
+
   // selecting random color
   var random_color = colors[Math.floor(Math.random() * colors.length)];
     
