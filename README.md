@@ -2,7 +2,7 @@
 
 ## Description
 
-This is an interactive frontend web application for discovering something to do and how to do it. Boredom is a common dilema, that most adults and children exerience regularly. This web application will allow users to solve their boredom by using the cleverly designed search engine to find activity ideas. They will then be able to use the YouTube videos and AI responses displayed to help them learn a new skill, have fun and potentially meet new people along the way.  
+This is an interactive frontend web application for discovering something to do and how to do it. Boredom is a common dilema, that most adults and children experience regularly. This web application will allow users to solve their boredom by using the cleverly designed search engine, which utilises 3 APIs, to find activity ideas. They will then be able to use the YouTube videos and AI responses displayed to help them learn a new skill, have fun and potentially meet new people along the way.  
 
 ## User Story 
 
@@ -27,22 +27,33 @@ SO THAT I am not bored
 
 ## Deployment 
 
-The webpage can be accessed here: (deployed url link here)
+The webpage can be accessed here: https://heyilll.github.io/js-solvemyboredom/
 
-The following images show visual representations of the webpages:
+Upon opening the webpage, the user can use the search panel to search for an activity by type &/or the number of participants, or they can select a random activity. The application will then take them to a new webpage where the activity that is generated will be detailed and a YouTube Video displayed, along with an AI generated response for how to undertake the chosen activity. Users can return to the homepage where previously chosen activities are stored for selection again.
+
+The following images show visual representations of the web-pages developed:
 
 ![_C__Users_Vali_Documents_bootcamp_Study_Group%20Project%201_js-solvemyboredom_index html (1)](https://user-images.githubusercontent.com/118351853/219731988-daf6bc23-0d04-4b51-9905-70f6acdc1fd7.png)
 
 ![_C__Users_Vali_Documents_bootcamp_Study_Group%20Project%201_js-solvemyboredom_main html (1)](https://user-images.githubusercontent.com/118351853/219732041-d0e86417-3f1c-4719-8c30-1535f0d602ea.png)
 
-Upon opening the webpage, the user can use the search panel to search for an activity by type &/or the number of participants, or they can select a random activity. The application will then take them to a new webpage where the activity that is generated will be detailed and a YouTube Video displayed, along with an AI generated response for how to undertake the chosen activity. Users can return to the homepage where previously chosen activities are stored for selection again.
 
-## Technologies used
+## Technology Stack
 
--Javascript
--jQuery
--HTML
--CSS
--Bootstrap
+- JavaScript
+- jQuery
+- HTML
+- CSS
+- Bootstrap
+
+## Developers
+
+This project was a collaboration between the following web developers:
+
+- Claire Greenwood
+- Heil Park
+- Sebastian Trojanowski
+- Valentin Manea
+
 
 
