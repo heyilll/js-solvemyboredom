@@ -1,10 +1,10 @@
 body {
-    background-color: rgb(46, 0, 183);
+    background-color: rgb(65, 2, 255);
 }
 
 /* jumbotron styling */
 .jumbotron {
-    background-color: rgb(46, 0, 183);
+    background-color: rgb(65, 2, 255);
     height: 15vw;
     overflow: none;
     padding-top: 5px;
@@ -17,7 +17,7 @@ body {
     color: white;
     font-weight: 900;
     margin-top: 4vw;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.03em;
  }
 
  .container main {
@@ -40,7 +40,7 @@ body {
 }
  /* navbar styling */
 .navbar {
-    background-color: rgb(46, 0, 183);
+    background-color: rgb(65, 2, 255);
 
 }
 
@@ -57,7 +57,7 @@ body {
     text-align: center;
 }
 .navbar-toggler {
-    background-color:rgb(46, 0, 183);
+    background-color:rgb(65, 2, 255);
   }
 
 #home {
@@ -66,7 +66,7 @@ body {
 }
 
 #nav-about {
-    background-color: #fff42b;
+    background-color: #f7d21d;
     border-radius: 5vw;
 }
 
@@ -111,7 +111,6 @@ body {
 #about h3 {
     font-size: 2vw;
     margin-bottom: 3vw;
-    letter-spacing: 0.1em;
     font-family: 'EB Garamond', serif;
 }
 
@@ -179,7 +178,7 @@ color: white;
 
 #search-area {
     background-color:rgb(15, 183, 255);
-    color:rgb(46, 0, 183);
+    color:rgb(65, 2, 255);
     border-radius: 5vw;
     font-size: 2vw;
     padding: 5%;
@@ -197,6 +196,10 @@ color: white;
 .container-search {
     margin-right: 5%;
     margin-left: 5%;
+}
+
+.search-random {
+    font-weight: 1000;
 }
 
 #activity-text {
@@ -235,7 +238,7 @@ color: white;
 
 #activity-history {
     background-color: none;
-    color:rgb(46, 0, 183);
+    color:rgb(65, 2, 255);
     border-radius: 5vw;
     margin-top: 3vw;
 }
@@ -267,3 +270,9 @@ color: white;
     100% { transform: rotate(360deg); }
   
 }
+
+.footer p {
+    color: white;
+    text-align: center;
+  }
+

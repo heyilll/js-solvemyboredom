@@ -44,7 +44,7 @@ function displayResultsAI(textInput, act) {
   $("#AI-response").append(
     $("<h2>")
       .attr("class", "ai-title")
-      .text(`AI's Advice - ` + act)
+      .text(act)
   );
 
   textInput_Split.forEach((element) =>
