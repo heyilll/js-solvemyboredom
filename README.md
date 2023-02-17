@@ -21,17 +21,28 @@ SO THAT I am not bored
   - search for a random activity
 - The webpage will display an activity following the user input.
 - Activities searched for will be saved to local storage when the save button is clicked.
-- Previously searched for activities will persit on the webpage between refreshes of the page allowing users to re-select activities.
+- Previously searched for activities will persit on the webpage between refreshes of the page allowing users to   re-select activities.
 - At least two APIs will be used to create the application. 
 - The application will be responsive. 
 
+## Deployment 
+
+The webpage can be accessed here: (deployed url link here)
+
+The following images show visual representations of the webpages:
+
+![_C__Users_Vali_Documents_bootcamp_Study_Group%20Project%201_js-solvemyboredom_index html (1)](https://user-images.githubusercontent.com/118351853/219731988-daf6bc23-0d04-4b51-9905-70f6acdc1fd7.png)
+
+![_C__Users_Vali_Documents_bootcamp_Study_Group%20Project%201_js-solvemyboredom_main html (1)](https://user-images.githubusercontent.com/118351853/219732041-d0e86417-3f1c-4719-8c30-1535f0d602ea.png)
+
+Upon opening the webpage, the user can use the search panel to search for an activity by type &/or the number of participants, or they can select a random activity. The application will then take them to a new webpage where the activity that is generated will be detailed and a YouTube Video displayed, along with an AI generated response for how to undertake the chosen activity. Users can return to the homepage where previously chosen activities are stored for selection again.
+
 ## Technologies used
 
-Javascript
-jQuery
-HTML
-CSS
-Bootstrap
+-Javascript
+-jQuery
+-HTML
+-CSS
+-Bootstrap
 
-## License 
 
