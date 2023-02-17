@@ -1,16 +1,21 @@
-*{
-    width:100%;
-    max-width: none;
-    padding-left: 0;
-    padding-right: 0;
-}
-
 
 body {
     background-color: rgb(46, 0, 183);
 }
 
+#container1 {
+    width:100%;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 5vw;
+}
 
+.logo {
+    margin-top: 2vw;
+    max-width: 50%;
+    height: auto;
+  }
 
 .title {
     text-align: center;
@@ -22,14 +27,56 @@ body {
     font-size: 5vw;
 }
 
+.activity {
+    color: white;
+    background-color: #0ad2ff;
+    border-radius: 5vw;
+    text-align: center;
+    padding: 0.5vw;
+    margin-top: 5vw;
+
+}
+
+.activity h1 {
+
+        color: white;
+        text-align: center;
+        font-weight: 800;
+        font-size: 4vw;
+        font-family: 'Raleway', sans-serif;
+}
+
 .activity-gen {
     text-align: center;
     color: white;
    
 }
+.activity-gen h2 {
+    font-size: 3vw;
+    color: white;
+    border-radius: 3vw;
+    
+}
 
 #image {
     border-radius: 50%;
+    width: 10vw;
+    height: 10vw;
+    margin-left: 2vw;
+}
+
+.menu {
+    background-color: rgb(255, 149, 0);
+    border-radius: 1vw;
+    margin-right: 2vw;
+    margin-top: 2vw;
+    width: 8vw;
+    height: 5vw;
+    border: none;
+}
+
+.fa-house {
+    color: white;
 }
 
 .video{
@@ -39,33 +86,55 @@ body {
     border-color: white;
 }
 
+#robot {
+    width: 5.5vw;
+    height: 5.5vw;
+    border-radius: 1.5vw;
+}
+
+.robot {
+    padding-right: 0;
+} 
+
+.AI-resp{
+    color: white;
+    background-color: #0ad2ff;
+    border-radius: 5vw;
+    text-align: center;
+    padding: 1vw;
+}
+
+.AI-resp h2 {
+    font-size: 4vw;
+}
 
 .AI-response {
     border: solid;
     border-color: white;
     height: 100%;
     width: 100%;
-    color: white
+    color: white;
+    padding: 2vw;
+    border-radius: 5vw;
  
 }
 
 .AI-response h2 {
-color: white;
+color: #0ad2ff;
+text-align: center;
+margin-top: 1vw;
+margin-bottom: 4vw;
+font-weight: 500;
+font-size: 2.5vw;
+background-color: white;
+border-radius: 3vw;
+padding: 1vw;
 }
 
-
-.logo{
-    margin-right: 100px;
-    max-width: 50%;
-    height: auto;
-  
-  }
-  
-  
-  
-  
-  
- 
+.AI-response h3 {
+    margin-bottom: 2vw;
+    font-size: 2vw;
+}
   
   .col-sm-12{
     margin: auto;
@@ -136,5 +205,4 @@ color: white;
     background-color: transparent;
   }
 
-  
 
