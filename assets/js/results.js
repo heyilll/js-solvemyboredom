@@ -32,15 +32,15 @@ function createHistContent(index) {
     $("<h2>").attr("class", "activity-title").text(activitiesList[index])
   );
   displayResultsAI(AIResponsesList[index], activitiesList[index]);
-  console.log("hist content created");
 }
 
+// function that displays the AI API response
 function displayResultsAI(textInput, act) {
   if (textInput == "") {
     return;
   }
   var textInput_Split = textInput.split("\n");
-  console.log(textInput_Split);
+
   $("#AI-response").append(
     $("<h2>")
       .attr("class", "ai-title")
@@ -52,9 +52,9 @@ function displayResultsAI(textInput, act) {
       $("<h3>").attr("class", "ai-content").text(element)
     )
   );
-  console.log("ai results displayed");
 }
 
+// reads in required info from local storage
 function readFromStorage() {
   var storedActivities = JSON.parse(localStorage.getItem("activity-history"));
   var storedYtinks = JSON.parse(localStorage.getItem("ytUrl-history"));
@@ -63,19 +63,18 @@ function readFromStorage() {
     activitiesList = storedActivities;
     youtubeLinksList = storedYtinks;
     AIResponsesList = storedAIResp;
-    console.log("read from storage");
   }
 }
 
+// resets page
 function emptyContent() {
   $("#video").attr("src", "");
   $("#AI-response").empty();
   $("#activity-gen").empty();
-  console.log("content empty");
 }
 
+// gets info of button from local storage
 function retreiveAction (){
   actionRequired = JSON.parse(localStorage.getItem("action-required"));
   historyIndex = JSON.parse(localStorage.getItem("hist-btn-index"));
-  console.log("Action: "+ actionRequired + " Hist-no: "+ historyIndex);
 }
