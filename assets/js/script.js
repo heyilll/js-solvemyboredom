@@ -94,7 +94,14 @@ function extractInfo({ activity, link, price }) {
     activity = "No activity found with the specified parameters";
     price = "Not found";
     link = "Not found";
+    currentAct = activity;
+    localStorage.setItem("action-required", JSON.stringify("search"));
+    currentYTLink = "https://www.youtube.com/embed/y96e9_DMKzE";
+    ytReady=1;
+    currentAIResp = "Please search again choosing different parameters!";
+    AIReady = 1;
   }
+  else{
   currentAct = activity;
   localStorage.setItem("action-required", JSON.stringify("search"));
 
@@ -102,6 +109,7 @@ function extractInfo({ activity, link, price }) {
     youTubeSearch(activity);
   } catch (err) {}
   chatGPT(activity);
+}
 }
 
 // function to search for the youtube link given the text input from boredapi
@@ -131,7 +139,7 @@ function youTubeSearch(text) {
 function createHistButtons() {
   $("#activity-history").empty();
   for (var i = 0; i < activitiesList.length; i++) {
-    if(activitiesList[i]) {
+    if(activitiesList[i] && !(activitiesList[i].includes("No activity found",0))) {
       var btn = $("<button>")
         .text(activitiesList[i])
         .attr("index", i)

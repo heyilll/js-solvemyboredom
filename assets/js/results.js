@@ -8,10 +8,13 @@ emptyContent();
 readFromStorage();
 
 retreiveAction();
-if(actionRequired=="search"){
-  createSearchContent(activitiesList[0], youtubeLinksList[0], AIResponsesList[0]);
-}
-else if(actionRequired=="history"){
+if (actionRequired == "search") {
+  createSearchContent(
+    activitiesList[0],
+    youtubeLinksList[0],
+    AIResponsesList[0]
+  );
+} else if (actionRequired == "history") {
   createHistContent(historyIndex);
 }
 
@@ -36,22 +39,22 @@ function createHistContent(index) {
 
 // function that displays the AI API response
 function displayResultsAI(textInput, act) {
-  if (textInput == "") {
-    return;
-  }
-  var textInput_Split = textInput.split("\n");
+  if (!!textInput) {
+    var textInput_Split = textInput.split("\n");
 
-  $("#AI-response").append(
-    $("<h2>")
-      .attr("class", "ai-title")
-      .text(act)
-  );
+    $("#AI-response").append($("<h2>").attr("class", "ai-title").text(act));
 
-  textInput_Split.forEach((element) =>
+    textInput_Split.forEach((element) =>
+      $("#AI-response").append(
+        $("<h3>").attr("class", "ai-content").text(element)
+      )
+    );
+  } else {
+    $("#AI-response").append($("<h2>").attr("class", "ai-title").text(act));
     $("#AI-response").append(
-      $("<h3>").attr("class", "ai-content").text(element)
-    )
-  );
+      $("<h3>").attr("class", "ai-content").text("No response!")
+    );
+  }
 }
 
 // reads in required info from local storage
@@ -74,7 +77,7 @@ function emptyContent() {
 }
 
 // gets info of button from local storage
-function retreiveAction (){
+function retreiveAction() {
   actionRequired = JSON.parse(localStorage.getItem("action-required"));
   historyIndex = JSON.parse(localStorage.getItem("hist-btn-index"));
 }
