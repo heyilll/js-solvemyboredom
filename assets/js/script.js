@@ -121,7 +121,7 @@ function youTubeSearch(text) {
       "https://youtube-search-results.p.rapidapi.com/youtube-search/?q=" + text,
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "45eb3a6e39msh58e5db491f7cc7cp104a72jsn525235543001",
+      "X-RapidAPI-Key": "2ae5dcbf0fmsh382aef7be3f7304p1c4366jsn4f2ac730d889",
       "X-RapidAPI-Host": "youtube-search-results.p.rapidapi.com",
     },
   };
@@ -168,7 +168,7 @@ function chatGPT(text) {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "X-RapidAPI-Key": "2ae5dcbf0fmsh382aef7be3f7304p1c4366jsn4f2ac730d889",
+      "X-RapidAPI-Key": "0f8ad57aa3msh3c81fb85dcfdad1p142227jsn3c3ddc23474f",
       "X-RapidAPI-Host": "you-chat-gpt.p.rapidapi.com",
     },
     body: `{"question": "How to ${text} in four sentences?", "max_response_time":10}`,
